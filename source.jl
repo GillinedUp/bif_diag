@@ -1,6 +1,9 @@
+function almost_equal(a, b, ϵ)
+  return abs(a-b) <= ϵ
+end
+
 function calc_bif(x_a)
-  λ_range = linspace(0.0, 1.0, 1000)
-  x_range = linspace(0.0, 4.0, 1000)
+  λ_range = linspace(0.0, 4.0, 1000)
   iter_const = 1000
   ϵ = 1e-6
   x_arr = Array{Array{Float64, 1}, 1}(0)
@@ -22,18 +25,3 @@ function calc_bif(x_a)
   end
   return x_arr
 end
-
-function almost_equal(a, b, ϵ)
-  return abs(a-b) <= ϵ
-end
-
-
-
-λ = 3.5
-x = 0.5
-x_arr = Array{Array{Float64, 1}, 1}(0)
-
-
-
-x
-x_arr
