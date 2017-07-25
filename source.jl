@@ -1,3 +1,5 @@
+using Plots
+
 function almost_equal(a, b, ϵ)
   return abs(a-b) <= ϵ
 end
@@ -14,7 +16,7 @@ function calc_bif(x_a)
       x = λ*x*(1-x)
     end
     while(true)
-      bool_arr = map(y -> almost_equal(x, y, ϵ), x_arr[end]) # check if we already found point
+      bool_arr = map(y -> almost_equal(x, y, ϵ), x_arr[end]) # check if we already added that point
       if !in(true, bool_arr) # if not
         push!(x_arr[end], x) # add it to the array
         x = λ*x*(1-x) # iterate once more
