@@ -1,4 +1,5 @@
-include("source.jl")
+using Plots
+include("source_da.jl")
 pyplot()
 x,y = calc_bif(0.5, 3000)
 verts = [(0, 0.5), (0, 0)]
