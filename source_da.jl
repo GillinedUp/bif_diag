@@ -1,6 +1,4 @@
-function almost_equal(a, b, ϵ)
-  return abs(a-b) <= ϵ
-end
+inlude("include.jl")
 
 function calc_bif(x_a, precision)
   λ_arr = collect(linspace(0.0, 4.0, precision))
