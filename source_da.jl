@@ -1,4 +1,4 @@
-inlude("include.jl")
+include("include.jl")
 
 function calc_bif(x_a, precision)
   λ_arr = collect(linspace(0.0, 4.0, precision))
