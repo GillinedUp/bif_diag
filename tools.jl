@@ -1,13 +1,10 @@
-function almost_equal(a, b, ϵ)
-  return abs(a-b) <= ϵ
-end
-
-function calc_bif(x_a, precision)
+function calc_max(x_a, precision)
   λ_arr = collect(linspace(0.0, 4.0, precision))
   iter_const = 100
   ϵ = 1e-6
   x_arr = Array{Array{Float64, 1}, 1}(precision)
   y_arr = Array{Array{Float64, 1}, 1}(precision)
+  max = 0
   for j = 1:precision
     λ = λ_arr[j]
     x = x_a
@@ -26,6 +23,16 @@ function calc_bif(x_a, precision)
       end
     end
     push!(x_arr[j], λ)
+    max = (length(y_arr[j]) > max ? length(y_arr[j]) : max)
   end
-  return x_arr, y_arr
+  return max
+end
+
+function find_eq(k)
+  x_a = 0.5
+  arr = Vector{Int64}(k)
+  for i = 1:k
+    arr[i] = calc_max(x_a, i*1000)
+  end
+  return arr
 end
