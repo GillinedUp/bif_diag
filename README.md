@@ -6,7 +6,7 @@ Requirements:
 * PyPlot
 
 Instructions:
-* run *interface.jl*
+* run *interface_da.jl*
 
 Example snapshot of the resulted diagram:
 ![Example](img/example_1.png)
