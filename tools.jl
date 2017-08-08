@@ -1,11 +1,11 @@
-function calc_max(x_a, precision)
-  λ_arr = collect(linspace(0.0, 4.0, precision))
+function calc_max(x_a, p)
+  λ_arr = collect(linspace(0.0, 4.0, p))
   iter_const = 100
   ϵ = 1e-6
-  x_arr = Array{Array{Float64, 1}, 1}(precision)
-  y_arr = Array{Array{Float64, 1}, 1}(precision)
+  x_arr = Array{Array{Float64, 1}, 1}(p)
+  y_arr = Array{Array{Float64, 1}, 1}(p)
   max = 0
-  for j = 1:precision
+  for j = 1:p
     λ = λ_arr[j]
     x = x_a
     x_arr[j] = Array{Float64, 1}(0)
