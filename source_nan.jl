@@ -1,5 +1,3 @@
-include("include.jl")
-
 function calc_bif_nan(x_a, p)
   λ_arr = collect(linspace(0.0, 4.0, p))
   p_const = 4407 # calculated with find_eq()

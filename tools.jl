@@ -1,6 +1,3 @@
-include("source_da.jl")
-include("source_nan.jl")
-
 function calc_max(x_a, p)
   λ_arr = collect(linspace(0.0, 4.0, p))
   iter_const = 100
