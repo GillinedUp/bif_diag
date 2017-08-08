@@ -40,7 +40,7 @@ function find_eq(k)
   return arr
 end
 
-function profile_calc_bif(x_a, p)
+function time_calc_bif(x_a, p)
   x,y = calc_bif_da(x_a, p)
   @time calc_bif_da(x_a, p)
   x,y = calc_bif_nan(x_a, p)
