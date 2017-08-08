@@ -16,7 +16,7 @@ function calc_max(x_a, p)
     for i = 1:iter_const
       x = λ*x*(1-x)
     end
-    while(true)
+    while true
       bool_arr = map(y -> almost_equal(x, y, ϵ), y_arr[j]) # check if we already added that point
       if !in(true, bool_arr) # if not
         push!(y_arr[j], x) # add it to the array
