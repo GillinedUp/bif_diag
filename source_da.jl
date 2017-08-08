@@ -1,6 +1,6 @@
 include("include.jl")
 
-function calc_bif(x_a, precision)
+function calc_bif_da(x_a, precision)
   λ_arr = collect(linspace(0.0, 4.0, precision))
   iter_const = 100
   ϵ = 1e-6

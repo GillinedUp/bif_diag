@@ -1,3 +1,6 @@
+include("source_da.jl")
+include("source_nan.jl")
+
 function calc_max(x_a, p)
   λ_arr = collect(linspace(0.0, 4.0, p))
   iter_const = 100
@@ -35,4 +38,11 @@ function find_eq(k)
     arr[i] = calc_max(x_a, i*1000)
   end
   return arr
+end
+
+function profile_calc_bif(x_a, p)
+  x,y = calc_bif_da(x_a, p)
+  @time calc_bif_da(x_a, p)
+  x,y = calc_bif_nan(x_a, p)
+  @time calc_bif_nan(x_a, p)
 end
