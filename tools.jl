@@ -1,6 +1,6 @@
 function calc_max(x_a::Float64, p::Int64)
   λ_arr = collect(linspace(0.0, 4.0, p))
-  const iter_const = 100
+  const iter_const = 10000
   const ϵ = 1e-6
   x_arr = Array{Array{Float64, 1}, 1}(p)
   y_arr = Array{Array{Float64, 1}, 1}(p)
@@ -37,9 +37,11 @@ function find_eq(k::Int64)
   return arr
 end
 
-function time_calc_bif(x_a, p)
+function time_calc_bif(x_a::Float64, p::Int64)
   x,y = calc_bif_da(x_a, p)
   @time calc_bif_da(x_a, p)
   x,y = calc_bif_nan(x_a, p)
   @time calc_bif_nan(x_a, p)
+  x,y = calc_bif_da_exp(x_a, p)
+  @time calc_bif_da_exp(x_a, p)
 end

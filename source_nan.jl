@@ -1,7 +1,7 @@
 function calc_bif_nan(x_a::Float64, p::Int64)
   λ_arr = collect(linspace(0.0, 4.0, p))
   const p_const = 4407 # calculated with find_eq()
-  const iter_const = 100
+  const iter_const = 10000
   const ϵ = 1e-6
   y_arr = Matrix{Float64}(p, p_const)
   fill!(y_arr, NaN)
