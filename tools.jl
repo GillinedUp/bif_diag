@@ -44,8 +44,10 @@ end
 
 function time_calc_bif(x_a::Float64, p::Int64)
   x,y = calc_bif_da(x_a, p)
+  println("  Array of arrays:")
   @time calc_bif_da(x_a, p)
   x,y = calc_bif_nan(x_a, p)
+  println("  NaN:")
   @time calc_bif_nan(x_a, p)
 end
 
