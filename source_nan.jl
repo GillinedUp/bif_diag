@@ -1,6 +1,6 @@
 function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
   λarr = collect(linspace(start, fin, p))
-  const pconst = 4407 # calculated with find_eq()
+  const pconst = 2720 # calculated with findeq()
   const iterconst = 50000
   const ϵ = 1e-6
   yarr = Matrix{Float64}(p, pconst)
@@ -11,7 +11,7 @@ function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
     for j = 1:iterconst
       x = λ*x*(1-x)
     end
-    yarr[i, 1] = x
+    yarr[i, 1] = x # add first value
     for m = 2:pconst
       x = λ*x*(1-x)
       if !almostequal(x, yarr[i, 1], ϵ)

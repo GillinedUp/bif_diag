@@ -14,16 +14,16 @@ function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
     end
     push!(yarr[j], x)
     found = false
-    while !found
+    while !found # while we still have new values
       x = λ*x*(1-x) # iterate once more
-      for y in yarr[j]
-        if almostequal(x, y, ϵ)
+      for y in yarr[j] # iterate through all found values
+        if almostequal(x, y, ϵ) # and check if we already have the new one
           found = true
           break
         end
       end
       if !found
-        push!(yarr[j], x) # add it to the array
+        push!(yarr[j], x) # if not, add it to the array
       end
     end
     push!(xarr[j], λ)
