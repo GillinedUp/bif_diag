@@ -1,25 +1,25 @@
-function calc_bif_nan(x_a::Float64, p::Int64, start = 0.0, fin = 4.0)
-  λ_arr = collect(linspace(0.0, 4.0, p))
-  const p_const = 4407 # calculated with find_eq()
-  const iter_const = 50000
+function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+  λarr = collect(linspace(start, fin, p))
+  const pconst = 4407 # calculated with find_eq()
+  const iterconst = 50000
   const ϵ = 1e-6
-  y_arr = Matrix{Float64}(p, p_const)
-  fill!(y_arr, NaN)
+  yarr = Matrix{Float64}(p, pconst)
+  fill!(yarr, NaN)
   for i = 1:p
-    λ = λ_arr[i]
-    x = x_a
-    for j = 1:iter_const
+    λ = λarr[i]
+    x = xa
+    for j = 1:iterconst
       x = λ*x*(1-x)
     end
-    y_arr[i, 1] = x
-    for m = 2:p_const
+    yarr[i, 1] = x
+    for m = 2:pconst
       x = λ*x*(1-x)
-      if !almost_equal(x, y_arr[i, 1], ϵ)
-        y_arr[i, m] = x
+      if !almostequal(x, yarr[i, 1], ϵ)
+        yarr[i, m] = x
       else
         break
       end
     end
   end
-  return λ_arr, y_arr
+  return λarr, yarr
 end

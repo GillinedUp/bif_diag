@@ -23,14 +23,14 @@ function run()
   p = parse(Int64, line)
 
   @match c begin
-    'a' => x,y = calc_bif_da(0.5, p, 2.75)
-    'b' => x,y = calc_bif_nan(0.5, p, 2.75)
-    'c' => time_calc_bif(0.5,p)
+    'a' => x,y = calcarr(0.5, p, 2.75)
+    'b' => x,y = calcnan(0.5, p, 2.75)
+    'c' => timecalc(0.5, p)
     _ => println("Got unknown value")
   end
-  if !isequal(c, 'c') && !isequal(c, 'e')
+  if !isequal(c, 'c')
     pyplot()
     verts = [(0, 0.1), (0, 0)]
-    scatter(x, y, marker = (Shape(verts), 1, RGBA(0,0,0,0)), markercolor = :blue, leg = false)
+    scatter(x, y, marker = (Shape(verts), 1, RGBA(0,0,0,0)), leg = false)
   end
 end

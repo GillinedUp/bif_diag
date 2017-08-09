@@ -1,32 +1,32 @@
-function calc_bif_da(x_a::Float64, p::Int64, start = 0.0, fin = 4.0)
-  λ_arr = collect(linspace(start, fin, p))
-  const iter_const = 50000
+function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+  λarr = collect(linspace(start, fin, p))
+  const iterconst = 50000
   const ϵ = 1e-6
-  x_arr = Array{Array{Float64, 1}, 1}(p)
-  y_arr = Array{Array{Float64, 1}, 1}(p)
+  xarr = Array{Array{Float64, 1}, 1}(p)
+  yarr = Array{Array{Float64, 1}, 1}(p)
   for j = 1:p
-    λ = λ_arr[j]
-    x = x_a
-    x_arr[j] = Array{Float64, 1}(0)
-    y_arr[j] = Array{Float64, 1}(0)
-    for i = 1:iter_const
+    λ = λarr[j]
+    x = xa
+    xarr[j] = Array{Float64, 1}(0)
+    yarr[j] = Array{Float64, 1}(0)
+    for i = 1:iterconst
       x = λ*x*(1-x)
     end
-    push!(y_arr[j], x)
+    push!(yarr[j], x)
     found = false
     while !found
       x = λ*x*(1-x) # iterate once more
-      for y in y_arr[j]
-        if almost_equal(x, y, ϵ)
+      for y in yarr[j]
+        if almostequal(x, y, ϵ)
           found = true
           break
         end
       end
       if !found
-        push!(y_arr[j], x) # add it to the array
+        push!(yarr[j], x) # add it to the array
       end
     end
-    push!(x_arr[j], λ)
+    push!(xarr[j], λ)
   end
-  return x_arr, y_arr
+  return xarr, yarr
 end
