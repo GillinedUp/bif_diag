@@ -7,7 +7,8 @@ Requirements:
 * Match
 
 Instructions:
-* run *start.jl* and follow the instructions
+1. *include("start.jl")*
+2. run *run()* 
 
 Example snapshot of the resulted diagram:
 ![Example](img/example_1.png)
