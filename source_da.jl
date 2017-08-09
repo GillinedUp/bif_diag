@@ -1,4 +1,4 @@
-function calc_bif_da(x_a, p)
+function calc_bif_da(x_a::Float64, p::Int64)
   λ_arr = collect(linspace(0.0, 4.0, p))
   iter_const = 100
   ϵ = 1e-6

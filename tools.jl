@@ -1,4 +1,4 @@
-function calc_max(x_a, p)
+function calc_max(x_a::Float64, p::Int64)
   λ_arr = collect(linspace(0.0, 4.0, p))
   iter_const = 100
   ϵ = 1e-6
@@ -28,7 +28,7 @@ function calc_max(x_a, p)
   return max
 end
 
-function find_eq(k)
+function find_eq(k::Int64)
   x_a = 0.5
   arr = Vector{Int64}(k)
   for i = 1:k

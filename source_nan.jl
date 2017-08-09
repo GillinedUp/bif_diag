@@ -1,4 +1,4 @@
-function calc_bif_nan(x_a, p)
+function calc_bif_nan(x_a::Float64, p::Int64)
   λ_arr = collect(linspace(0.0, 4.0, p))
   p_const = 4407 # calculated with find_eq()
   iter_const = 100 # make const
