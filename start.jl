@@ -25,10 +25,10 @@ function run()
     'a' => x,y = calc_bif_da(0.5,p)
     'b' => x,y = calc_bif_nan(0.5,p)
     'c' => time_calc_bif(0.5,p)
-    'd' => x,y = calc_bif_da_exp(0.5,p)
+    'd' => calc_numofpoints(0.5,p)
     _ => println("Got unknown value")
   end
-  if !isequal(c, 'c')
+  if !isequal(c, 'c') && !isequal(c, 'e')
     pyplot()
     verts = [(0, 0.5), (0, 0)]
     scatter(x, y, marker = (Shape(verts), 1, RGBA(0,0,0,0)), markercolor = :black, leg = false)
