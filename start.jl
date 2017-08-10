@@ -1,10 +1,14 @@
 using Match
 using Plots
 
+@everywhere begin
+
 include("include.jl")
 include("source_da.jl")
 include("source_nan.jl")
 include("tools.jl")
+
+end
 
 function run()
   print(
