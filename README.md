@@ -8,7 +8,7 @@ Requirements:
 
 Instructions:
 1. *include("start.jl")*
-2. *run()* 
+2. *run()*
 
 Example snapshot of the resulted diagram:
 ![Example](img/example_1.png)
