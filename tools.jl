@@ -104,12 +104,18 @@ function calcnanp(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
     end
     yarr[i, 1] = x # add first value
     m = 1
-    for m = 2:pconst
-      x = λ*x*(1-x)
-      if !almostequal(x, yarr[i, 1], ϵ)
-        yarr[i, m] = x
-      else
-        break
+    found = false
+    while !found # while we still have new values
+      x = λ*x*(1-x) # iterate once more
+      for k = 1:m # iterate through all found values
+        if almostequal(x, yarr[i, k], ϵ) # and check if we already have the new one
+          found = true
+          break
+        end
+      end
+      if !found
+        m += 1
+        yarr[i, m] = x # if not, add it to the array
       end
     end
     points += m
