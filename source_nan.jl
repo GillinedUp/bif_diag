@@ -1,4 +1,4 @@
-function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+@everywhere function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
   λarr = collect(linspace(start, fin, p))
   const pconst = 2720 # calculated with findeq()
   const iterconst = 50000
@@ -31,31 +31,31 @@ function calcnan(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
   return λarr, yarr
 end
 
-# function calcnan_anim(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
-#   λarr = collect(linspace(start, fin, p))
-#   const pconst = 2720 # calculated with findeq()
-#   const iterconst = 50000
-#   const ϵ = 1e-6
-#   yarr = Matrix{Float64}(p, pconst)
-#   fill!(yarr, NaN)
-#   pyplot()
-#   verts = [(0, 0.1), (0, 0)]
-#   anim = @animate for i = 1:p
-#     λ = λarr[i]
-#     x = xa
-#     for j = 1:iterconst
-#       x = λ*x*(1-x)
-#     end
-#     yarr[i, 1] = x # add first value
-#     for m = 2:pconst
-#       x = λ*x*(1-x)
-#       if !almostequal(x, yarr[i, 1], ϵ)
-#         yarr[i, m] = x
-#       else
-#         break
-#       end
-#     end
-#     scatter(λarr, yarr, marker = (Shape(verts), 1, RGBA(0,0,0,0)), leg = false)
-#   end
-#   return λarr, yarr, anim
-# end
+function calcnan_anim(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+  λarr = collect(linspace(start, fin, p))
+  const pconst = 2720 # calculated with findeq()
+  const iterconst = 50000
+  const ϵ = 1e-6
+  yarr = Matrix{Float64}(p, pconst)
+  fill!(yarr, NaN)
+  pyplot()
+  verts = [(0, 0.1), (0, 0)]
+  anim = @animate for i = 1:p
+    λ = λarr[i]
+    x = xa
+    for j = 1:iterconst
+      x = λ*x*(1-x)
+    end
+    yarr[i, 1] = x # add first value
+    for m = 2:pconst
+      x = λ*x*(1-x)
+      if !almostequal(x, yarr[i, 1], ϵ)
+        yarr[i, m] = x
+      else
+        break
+      end
+    end
+    scatter(λarr, yarr, marker = (Shape(verts), 1, RGBA(0,0,0,0)), leg = false)
+  end
+  return λarr, yarr, anim
+end

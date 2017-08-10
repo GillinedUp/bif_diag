@@ -1,14 +1,10 @@
 using Match
 using Plots
 
-@everywhere begin
-
 include("include.jl")
 include("source_da.jl")
 include("source_nan.jl")
 include("tools.jl")
-
-end
 
 function run()
   print(
@@ -20,8 +16,7 @@ function run()
   arr = read(STDIN, 1)
   c = Char(arr[1])
 
-  println("Type desired precision value (it's strongly advised to give at least "*
-  "1000 and multiplier of 1000):")
+  println("Type desired precision value:")
   line = readline(STDIN)
   line = readline(STDIN)
   p = parse(Int64, line)
@@ -30,7 +25,7 @@ function run()
     'a' => x,y = calcarr(0.5, p, 2.75)
     'b' => x,y = calcnan(0.5, p, 2.75)
     'c' => timecalc(0.5, p)
-    'd' => x,y,a = calcnan_anim(0.5, p, 2.75)
+    'd' => x,y,a = calcnan_anim(0.5, p, 0.0, 2.75)
     _ => println("Got unknown value")
   end
   if !isequal(c, 'c') && !isequal(c, 'd')
