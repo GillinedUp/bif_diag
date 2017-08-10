@@ -49,8 +49,6 @@ function timecalc(xa::Float64, p::Int64)
   x,y = calcnan(xa, p)
   println("NaN:")
   @time calcnan(xa, p)
-  x,y = calcnane(xa, p)
-  @time calcnane(xa, p)
 end
 
 function calcarrp(xa::Float64, p::Int64)

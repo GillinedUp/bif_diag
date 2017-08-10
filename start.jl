@@ -27,7 +27,6 @@ function run()
     'b' => x,y = calcnan(0.5, p, 2.75)
     'c' => timecalc(0.5, p)
     'd' => x,y,a = calcnan_anim(0.5, p, 2.75)
-    'e' => x,y = calcnane(0.5, p, 2.75)
     _ => println("Got unknown value")
   end
   if !isequal(c, 'c') && !isequal(c, 'd')
