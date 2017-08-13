@@ -15,9 +15,9 @@ end
 function run()
   print(
     "Type one of the following letters to choose desired function:\n"*
-    "a: use algorithm based on arrays of arrays\n"*
-    "b: use algorithm based on NaN feature (can run in parallel on multi-core processors)\n"*
-    "c: compare calculation speed of both algorithms\n"
+    "a: use the algorithm based on arrays of arrays\n"*
+    "b: use the algorithm based on NaN feature (can run in parallel on multi-core processors)\n"*
+    "c: compare the calculation speed of both algorithms\n"
   )
   arr = read(STDIN, 1)
   c = Char(arr[1])

@@ -2,13 +2,13 @@ function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
   λarr = collect(linspace(start, fin, p))
   const iterconst = 50000
   const ϵ = 1e-6
-  xarr = Array{Array{Float64, 1}, 1}(p)
-  yarr = Array{Array{Float64, 1}, 1}(p)
+  xarr = Array{Array{Float64,1},1}(p)
+  yarr = Array{Array{Float64,1},1}(p)
   for j = 1:p
     λ = λarr[j]
     x = xa
-    xarr[j] = Array{Float64, 1}(0)
-    yarr[j] = Array{Float64, 1}(0)
+    xarr[j] = Array{Float64,1}(0)
+    yarr[j] = Array{Float64,1}(0)
     for i = 1:iterconst
       x = λ*x*(1-x)
     end

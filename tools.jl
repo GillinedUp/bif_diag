@@ -2,14 +2,14 @@ function calcmax(xa::Float64, p::Int64)
   λarr = collect(linspace(0.0, 4.0, p))
   const iterconst = 50000
   const ϵ = 1e-6
-  xarr = Array{Array{Float64, 1}, 1}(p)
-  yarr = Array{Array{Float64, 1}, 1}(p)
+  xarr = Array{Array{Float64,1},1}(p)
+  yarr = Array{Array{Float64,1},1}(p)
   max = 0
   for j = 1:p
     λ = λarr[j]
     x = xa
-    xarr[j] = Array{Float64, 1}(0)
-    yarr[j] = Array{Float64, 1}(0)
+    xarr[j] = Array{Float64,1}(0)
+    yarr[j] = Array{Float64,1}(0)
     for i = 1:iterconst
       x = λ*x*(1-x)
     end
@@ -43,12 +43,13 @@ function findeq(k::Int64)
 end
 
 function timecalc(xa::Float64, p::Int64)
-  x,y = calcarr(xa, p)
+  _,_ = calcarr(xa, p)
   println("Array of arrays:")
   @time calcarr(xa, p)
-  x,y = calcnan(xa, p)
+  _,_ = calcnan(xa, p)
   println("NaN:")
   @time calcnan(xa, p)
+  nothing
 end
 
 function calcarrp(xa::Float64, p::Int64)
