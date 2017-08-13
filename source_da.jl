@@ -30,3 +30,20 @@ function calcarr(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
   end
   return xarr, yarr
 end
+
+# function calcarrpmap(xa::Float64, p::Int64, start = 0.0, fin = 4.0)
+#
+# end
+#
+# xa = 0.5
+# p = 1000
+# start = 0.0
+# fin = 4.0
+#
+# const chunks = 10
+# step = div(p, 100)
+# λarr = collect(linspace(start, fin, p))
+# const iterconst = 50000
+# const ϵ = 1e-6
+# xarr = Array{Array{Float64, 1}, 1}(p)
+# yarr = Array{Array{Float64, 1}, 1}(p)
